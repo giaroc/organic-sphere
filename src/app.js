@@ -70,7 +70,7 @@ const startApp = () => {
     const ico = new THREE.Mesh(geometry, material)
     scene.add(ico)
 
-    ico.interactive = true;
+    /*ico.interactive = true;
     const followMouseMovement = (event) => {
         const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
         const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -85,7 +85,7 @@ const startApp = () => {
         ico.rotation.y = movementX * 2;
     };
 
-    window.addEventListener('mousemove', followMouseMovement);
+    window.addEventListener('mousemove', followMouseMovement);*/
 
     // GUI
     //const cameraFolder = gui.addFolder('Camera')

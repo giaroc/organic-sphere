@@ -25,15 +25,15 @@ const startApp = () => {
     const MOTION_BLUR_AMOUNT = 0.725
 
     // lighting
-    const dirLight = new THREE.DirectionalLight('#01B08E', 0.6)
+    const dirLight = new THREE.DirectionalLight('#01B08E', 4.0)
     dirLight.position.set(2, 2, 2)
 
-    const ambientLight = new THREE.AmbientLight('#01B08E', 0.27)
+    const ambientLight = new THREE.AmbientLight('#01B08E', 0.6)
     scene.add(dirLight, ambientLight)
 
 
     // meshes
-    const geometry = new THREE.IcosahedronGeometry(1, 400)
+    const geometry = new THREE.IcosahedronGeometry(1, 100)
     const material = new THREE.MeshStandardMaterial({
         onBeforeCompile: (shader) => {
             // storing a reference to the shader object

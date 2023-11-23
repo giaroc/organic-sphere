@@ -5,7 +5,7 @@ varying vec3 vNormal;
 varying vec2 vUv;
 varying float vDisplacement;
 
-#define PI 3.1415926535897932384626433832795
+#define PI radians(180.0)
 
 //	Classic Perlin 3D Noise 
 //	by Stefan Gustavson
@@ -103,28 +103,33 @@ float fit(float unscaled, float originalMin, float originalMax, float minAllowed
 }
 
 float wave(vec3 position) {
-  return fit(smoothMod(position.y * 6.0, 1.0, 1.5), 0.35, 0.6, 0.0, 1.0);
+    return fit(smoothMod(position.y * 6.0, 1.0, 1.5), 0.35, 0.6, 0.0, 1.0);
 }
 
 
 void main() {
+    // Costruisci le coordinate
     vec3 coords = normal;
     coords.y += uTime;
+
+    // Calcola il pattern di noise
     vec3 noisePattern = vec3(noise(coords));
     float pattern = wave(noisePattern);
 
-    // varyings
+    // Varyings
     vPosition = position;
     vNormal = normal;
     vUv = uv;
     vDisplacement = pattern;
 
-
+    // Calcola il displacement una sola volta
     float displacement = vDisplacement / 3.0;
 
-    // MVP
+    // Calcola la nuova posizione
     vec3 newPosition = position + normal * displacement;
-    vec4 modelViewPosition = modelViewMatrix * vec4( newPosition, 1.0 );
+
+    // MVP
+    vec4 modelViewPosition = modelViewMatrix * vec4(newPosition, 1.0);
     vec4 projectedPosition = projectionMatrix * modelViewPosition;
-	gl_Position = projectedPosition;
+    gl_Position = projectedPosition;
 }

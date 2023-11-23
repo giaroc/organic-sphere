@@ -47,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:visionary-studio/three-boilerplate"
+    "url": "git@github.com:giaroc/organic-sphere"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.4",

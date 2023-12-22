@@ -40,6 +40,9 @@ You can view the deploy by creating a server in `dist`.
 cd dist && http-server
 ```
 
+## Demo
+
+You can view a demo by clicking [here](https://organic-sphere-three.vercel.app/).
 
 ## License
 
